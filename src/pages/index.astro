@@ -11,8 +11,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			:root {
-				--highlight-color: rgba(59, 130, 246, 0.4); /* Soft Blue */
-				--highlight-hover: rgba(59, 130, 246, 0.7); /* Vibrant Blue */
+				/* Brighter, clearer blue for the permanent highlight */
+				--highlight-color: rgba(59, 130, 246, 0.2); 
+				--highlight-text: #1e40af;
 			}
 			main {
 				width: calc(100% - 2em);
@@ -57,25 +58,25 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				border: 1px solid #e2e8f0;
 			}
 
-			/* --- The Blue Highlight Style --- */
+			/* --- The Fixed Full Blue Highlight Style --- */
 			a {
-				text-decoration: none; /* Removes the underline mark */
-				color: #1e40af;
+				text-decoration: none;      /* Removes the actual underline mark */
+				color: var(--highlight-text);
 				font-weight: 700;
-				padding: 0 2px;
-				/* Creates the highlight effect */
-				background-image: linear-gradient(var(--highlight-color), var(--highlight-color));
-				background-position: 0 85%;
-				background-repeat: no-repeat;
-				background-size: 100% 35%; /* Adjust height of the highlight here */
-				transition: background-size 0.25s ease-in-out, background-color 0.25s;
+				padding: 2px 4px;           /* Adds space around text for the highlight */
+				margin: 0 -2px;             /* Offsets padding to keep text alignment */
+				border-radius: 4px;         /* Smooth edges for the highlight */
+				
+				/* Full Background Highlight */
+				background-color: var(--highlight-color);
+				
+				transition: all 0.2s ease-in-out;
 			}
 
 			a:hover {
-				background-size: 100% 100%; /* Highlight covers text on hover */
-				background-image: linear-gradient(var(--highlight-hover), var(--highlight-hover));
-				color: #ffffff;
-				border-radius: 4px;
+				background-color: #3b82f6; /* Solid blue on hover */
+				color: #ffffff;            /* White text on hover */
+				box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 			}
 
 			@keyframes slideUp {
@@ -108,9 +109,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
 			</ul>
 			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
+				If you want websites like that contact us at <a href="https://aevasoft.com"
+					>AevaSoft Technologies
+				</a> or <a href="mailto:info@aevasoft.com">email us</a> to ask questions.
 			</p>
 			<p>
 				Looking for a blog template with a bit more personality? Check out <a
