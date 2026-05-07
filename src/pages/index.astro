@@ -10,58 +10,76 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
+			:root {
+				--highlight-color: rgba(59, 130, 246, 0.4); /* Soft Blue */
+				--highlight-hover: rgba(59, 130, 246, 0.7); /* Vibrant Blue */
+			}
 			main {
 				width: calc(100% - 2em);
 				max-width: 800px;
 				margin: auto;
-				padding: 3em 1em;
-				line-height: 1.6;
-				color: #2d3748;
-				animation: fadeIn 0.8s ease-in;
+				padding: 4em 1em;
+				line-height: 1.7;
+				color: #334155;
+				animation: slideUp 0.6s ease-out;
 			}
 			h1 {
-				font-size: 3rem;
-				font-weight: 800;
-				line-height: 1;
-				margin-bottom: 0.5em;
-				color: #1a202c;
+				font-size: clamp(2.5rem, 5vw, 3.5rem);
+				font-weight: 900;
+				letter-spacing: -0.02em;
+				margin-bottom: 0.75em;
+				color: #0f172a;
+				background: linear-gradient(to right, #1d4ed8, #3b82f6);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
 			}
 			p {
 				margin-bottom: 1.5em;
-				font-size: 1.125rem;
+				font-size: 1.2rem;
 			}
 			ul {
-				background: #f7fafc;
-				padding: 2em 2em 2em 3em;
-				border-radius: 12px;
-				list-style-type: '🚀 ';
+				background: #f8fafc;
+				padding: 2.5em;
+				border-radius: 16px;
+				border: 1px solid #e2e8f0;
+				list-style-type: '✨';
 			}
 			li {
-				margin-bottom: 0.75em;
+				margin-bottom: 1rem;
+				padding-left: 0.5rem;
 			}
 			code {
-				background: #edf2f7;
-				padding: 0.2em 0.4em;
-				border-radius: 4px;
-				font-size: 0.9em;
+				background: #f1f5f9;
+				padding: 0.2em 0.5em;
+				border-radius: 6px;
+				font-family: 'Courier New', Courier, monospace;
+				font-size: 0.95em;
+				border: 1px solid #e2e8f0;
 			}
 
-			/* Custom Link Styling: Blue Highlight, No Underline */
+			/* --- The Blue Highlight Style --- */
 			a {
-				text-decoration: none; /* Removes default underline */
-				color: inherit;
-				font-weight: 600;
-				position: relative;
-				box-shadow: inset 0 -4px 0 #3b82f6; /* The blue highlight */
-				transition: box-shadow 0.2s ease-in-out, color 0.2s;
-			}
-			a:hover {
-				box-shadow: inset 0 -20px 0 #3b82f6; /* Expands highlight on hover */
-				color: white;
+				text-decoration: none; /* Removes the underline mark */
+				color: #1e40af;
+				font-weight: 700;
+				padding: 0 2px;
+				/* Creates the highlight effect */
+				background-image: linear-gradient(var(--highlight-color), var(--highlight-color));
+				background-position: 0 85%;
+				background-repeat: no-repeat;
+				background-size: 100% 35%; /* Adjust height of the highlight here */
+				transition: background-size 0.25s ease-in-out, background-color 0.25s;
 			}
 
-			@keyframes fadeIn {
-				from { opacity: 0; transform: translateY(10px); }
+			a:hover {
+				background-size: 100% 100%; /* Highlight covers text on hover */
+				background-image: linear-gradient(var(--highlight-hover), var(--highlight-hover));
+				color: #ffffff;
+				border-radius: 4px;
+			}
+
+			@keyframes slideUp {
+				from { opacity: 0; transform: translateY(20px); }
 				to { opacity: 1; transform: translateY(0); }
 			}
 		</style>
@@ -96,8 +114,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			</p>
 			<p>
 				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
+					href="https://github.com/Danyal-Raza/astro-blog-starter-template"
+					>astro-blog-template-repo
 				</a> by <a href="https://linkedin.com/in/syed-danyal-raza-b80271264">Syed Danyal Raza</a>.
 			</p>
 		</main>
